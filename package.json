@@ -1,0 +1,26 @@
+{
+  "name": "locaflix-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Self-hosted 4K media streaming platform (Java 25 + Spring Boot 4.1, Shared TypeScript SDK, React 19 Web, iOS, Android, Android TV & Apple TV)",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "e2e"
+  ],
+  "scripts": {
+    "build:sdk": "npm --workspace=@locaflix/core-sdk run build",
+    "build:web": "npm --workspace=@locaflix/web run build",
+    "test:unit": "npm --workspaces --if-present run test:unit",
+    "test:component": "npm --workspaces --if-present run test:component",
+    "test:integration": "npm --workspaces --if-present run test:integration",
+    "test:e2e": "npm --workspace=@locaflix/e2e run test",
+    "typecheck": "npm --workspaces --if-present run typecheck",
+    "server:test": "mvn -f server/pom.xml test",
+    "server:verify": "mvn -f server/pom.xml verify",
+    "server:run": "mvn -f server/pom.xml spring-boot:run"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
